@@ -1,14 +1,81 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Character creation</title>
-</head>
-<body>
+  </head>
+  <body>
+    <h1>Character creation</h1>
     <script>
-        
+      const classes = {
+        paladin: {
+          hp: 8,
+          mp: 0,
+          PhyAtk: 8,
+          PhyDef: 5,
+          MagAtk: 0,
+          MagDef: 4,
+          Agility: 10,
+          Resist: 5,
+        },
+        wizard: {
+          hp: 6,
+          mp: 15,
+          PhyAtk: 0,
+          PhyDef: 0,
+          MagAtk: 7,
+          MagDef: 7,
+          Agility: 0,
+          Resist: 5,
+        },
+        cleric: {
+          hp: 8,
+          mp: 5,
+          PhyAtk: 2,
+          PhyDef: 2,
+          MagAtk: 8,
+          MagDef: 8,
+          Agility: 2,
+          Resist: 5,
+        },
+        barbarian: {
+          hp: 12,
+          mp: 0,
+          PhyAtk: 13,
+          PhyDef: 0,
+          MagAtk: 0,
+          MagDef: 0,
+          Agility: 10,
+          Resist: 5,
+        },
+        monk: {
+          hp: 10,
+          mp: 0,
+          PhyAtk: 7,
+          PhyDef: 8,
+          MagAtk: 0,
+          MagDef: 0,
+          Agility: 10,
+          Resist: 5,
+        },
+      };
+      var stat = {
+        hp: 0,
+        mp: 0,
+        PhyAtk: 0,
+        PhyDef: 0,
+        MagAtk: 0,
+        MagDef: 0,
+        Agility: 0,
+        Resist: 0,
+      };
+      let character = {
+    level :0,
+    maxLevel :0,
+    stats :{ hp :0 , mp :0 , PhyAtk :0 , PhyDef :0 , MagAtk :0 , MagDef :0 , Agility :0 , Resist :0 }
+};
     </script>
-</body>
+  </body>
 </html>

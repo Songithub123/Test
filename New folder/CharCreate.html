@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Character Creation</title>
+  </head>
+  <body>
+    <h1>Character Creation</h1>
+    <label for="max-level-input">Max Level:</label>
+    <input type="number" id="max-level-input" name="max-level-input" min="1">
+    <h2>Select Class</h2>
+    <button id="paladin-button">Paladin</button>
+    <button id="wizard-button">Wizard</button>
+    <button id="cleric-button">Cleric</button>
+    <button id="barbarian-button">Barbarian</button>
+    <button id="monk-button">Monk</button>
+    <h2>Character Stats</h2>
+    <ul id="stats-list">
+      <li>HP: <span id="hp-stat"></span></li>
+      <li>MP: <span id="mp-stat"></span></li>
+      <li>Physical Attack: <span id="phyatk-stat"></span></li>
+      <li>Physical Defense: <span id="phydef-stat"></span></li>
+      <li>Magic Attack: <span id="magatk-stat"></span></li>
+      <li>Magic Defense: <span id="magdef-stat"></span></li>
+      <li>Agility: <span id="agility-stat"></span></li>
+      <li>Resist: <span id="resist-stat"></span></li>
+	<script>
+      // define character classes
+      	// define character classes
+const classes = {
+  paladin: { hp: 8, mp: 0, PhyAtk: 8, PhyDef: 5, MagAtk: 0, MagDef: 4, Agility: 10, Resist: 5 },
+  wizard: { hp: 6, mp: 15, PhyAtk: 0, PhyDef: 0, MagAtk: 7, MagDef: 7, Agility: 0, Resist: 5 },
+  cleric: { hp: 8, mp: 5, PhyAtk: 2, PhyDef: 2, MagAtk: 8, MagDef: 8, Agility: 2, Resist: 5 },
+  barbarian: { hp: 12, mp: 0, PhyAtk: 13, PhyDef: 0, MagAtk: 0, MagDef: 0, Agility: 10, Resist: 5 },
+  monk : { hp :10 , mp :0 , PhyAtk :7 , PhyDef :8 , MagAtk :0 , MagDef :0 , Agility :10 , Resist :5 }
+};
+
+// define character object
+let character = {
+    level :0,
+    maxLevel :0,
+    stats :{ hp :0 , mp :0 , PhyAtk :0 , PhyDef :0 , MagAtk :0 , MagDef :0 , Agility :0 , Resist :0 }
+};
+// function to update stats display
+function updateStatsDisplay() {
+    document.getElementById('hp-stat').textContent = character.stats.hp;
+    document.getElementById('mp-stat').textContent = character.stats.mp;
+    document.getElementById('phyatk-stat').textContent = character.stats.PhyAtk;
+    document.getElementById('phydef-stat').textContent = character.stats.PhyDef;
+    document.getElementById('magatk-stat').textContent = character.stats.MagAtk;
+    document.getElementById('magdef-stat').textContent = character.stats.MagDef;
+    document.getElementById('agility-stat').textContent = character.stats.Agility;
+    document.getElementById('resist-stat').textContent = character.stats.Resist;
+}
+// function to handle class selection
+function selectClass(className) {
+    // check if character has reached max level
+    if (character.level >= character.maxLevel) {
+        // redirect to character sheet page
+        window.location.href = '/character-sheet';
+    } else {
+        // update character stats
+        for (let stat in character.stats) {
+            character.stats[stat] += classes[className][stat];
+        }
+        // increment character level
+        character.level++;
+        // update display
+        updateStatsDisplay();
+    }
+}
+
+
+
+
+// add event listeners to class buttons
+document.getElementById('paladin-button').addEventListener('click', () => selectClass('paladin'));
+document.getElementById('wizard-button').addEventListener('click', () => selectClass('wizard'));
+document.getElementById('cleric-button').addEventListener('click', () => selectClass('cleric'));
+document.getElementById('barbarian-button').addEventListener('click', () => selectClass('barbarian'));
+document.getElementById('monk-button').addEventListener('click', () => selectClass('monk'));
+
+// handle max level input
+document.getElementById('max-level-input').addEventListener('change', (event) => {
+    character.maxLevel = parseInt(event.target.value);
+});
+
+
+    </ul>
+  </body>
+</html>
