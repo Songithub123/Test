@@ -1,0 +1,31 @@
+h1 {
+	text-align: center;
+}
+
+label {
+	display: block;
+	margin: 10px 0;
+}
+
+input, button {
+	display: block;
+	margin: 10px auto;
+}
+
+#class-container {
+	display: flex;
+	justify-content: center;
+}
+
+button[class] {
+	margin: 0 10px;
+}
+
+#character-stats {
+	margin-top: 50px;
+	text-align: center;
+}
+
+#character-stats p {
+	margin: 5px 0;
+}
